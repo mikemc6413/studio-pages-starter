@@ -11,6 +11,7 @@ import Label from "../components/Label";
 
 import BigButton from "../components/BigButton";
 import CenteredContainer from "../components/CenteredContainer";
+import CTASectionCentered from "../components/CTASectionCentered";
 import PageLayout from "../components/PageLayout";
 import Paragraph from "../components/Paragraph";
 import ProductImage from "../components/ProductImage";
@@ -22,9 +23,9 @@ import "../index.css";
 export const config: TemplateConfig = {
   stream: {
     $id: "skis",
-    filter: { entityTypes: ["ce_product"] },
     localization: { locales: ["en"], primary: false },
-    fields: ["name", "c_price", "description", "photoGallery", "slug"],
+    filter: { entityTypes: ["ce_product"] },
+    fields: ["description", "name", "c_price", "photoGallery", "slug"],
   },
 };
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
@@ -34,6 +35,14 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 export default function Product({ document }: TemplateProps) {
   return (
     <>
+      <CTASectionCentered
+        cta2Color={``}
+        cta2Label={``}
+        cta1Color={``}
+        cta1Label={`Buy Now`}
+        paragraph={`${document.description}`}
+        heading={`${document.name}`}
+      />
       <>
         <PageLayout backgroundColor="#FFFFFF">
           <HeaderSimple
